@@ -1,0 +1,12 @@
+RewriteEngine On
+#stop directory listing
+Options -Indexes
+# Send Requests To Front Controller...
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
+#stop .env file
+<Files .env>
+    Order allow,deny
+    Deny from all
+</Files>
