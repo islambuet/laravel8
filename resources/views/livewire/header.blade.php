@@ -11,6 +11,7 @@
     <button id="handler_right_sidebar" class="handler-sidebar float-right">
         <i class="fe-bell"></i>
     </button>
+    {{ Auth::user() }}
     <!-- Users options -->
     <ul class="list-unstyled float-right mb-0">
         <li class="dropdown">
