@@ -6,6 +6,7 @@ use Livewire\Component;
 
 class HomeComponent extends Component
 {
+    public $message = 'Hello World!';
     public function render()
     {
         return view('livewire.home-component')->layout('layouts/mytheme');

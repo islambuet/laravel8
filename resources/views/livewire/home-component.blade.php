@@ -1,3 +1,9 @@
-<h2>This is Home</h2>
-This is test
+
+<div>
+    <h1>{{ $message }}</h1>
+    <input wire:model="message" type="text">
+    <h1>{{ $message }}</h1>
+</div>
+
+
     

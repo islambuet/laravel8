@@ -44,7 +44,7 @@
 
 <!-- Theme JS -->
 <script type="text/javascript" src="{{ asset('assets/mytheme/js/theme.js') }}"></script>
-
+@livewireScripts
 </body>
 
 </html>

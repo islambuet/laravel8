@@ -10,13 +10,12 @@
     <!-- Right Sidebar handler -->
     <button id="handler_right_sidebar" class="handler-sidebar float-right">
         <i class="fe-bell"></i>
-    </button>
-    {{ Auth::user() }}
+    </button>    
     <!-- Users options -->
     <ul class="list-unstyled float-right mb-0">
         <li class="dropdown">
             <a class="nav-link dropdown-toggle mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                <img src="{{ asset('assets_mytheme/images/avatar-1.jpg') }}"  alt="user-image" class="rounded-circle" style="height: 32px;width: 32px;">
+                <img src="{{ asset('assets/mytheme/images/avatar-1.jpg') }}"  alt="user-image" class="rounded-circle" style="height: 32px;width: 32px;">
                             <span class="pro-user-name ml-1">
                                 Shaiful Islam  <i class="mdi mdi-chevron-down"></i>
                             </span>
