@@ -60,4 +60,8 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+    protected function defaultProfilePhotoUrl()
+    {
+        return 'https://ui-avatars.com/api/?name='.urlencode($this['name_'.config('app.locale')]).'&color=7F9CF5&background=EBF4FF';
+    }
 }
