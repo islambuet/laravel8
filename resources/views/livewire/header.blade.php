@@ -16,12 +16,8 @@
         <li class="dropdown">
             <a class="nav-link dropdown-toggle mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">{{__('Change Language')}}</a>
             <div class="dropdown-menu dropdown-menu-right">
-                <a href="{{ route('login') }}" class="dropdown-item notify-item">
-                    <span>English</span>
-                </a>
-                <a href="{{ route('register') }}" class="dropdown-item notify-item">
-                    <span>বাংলা</span>
-                </a>
+                <span class="dropdown-item notify-item" style="cursor: pointer" onclick="setCookie('language','en',365); window.location.reload();">English</span>
+                <span class="dropdown-item notify-item" style="cursor: pointer" onclick="setCookie('language','bn',365); window.location.reload();">বাংলা</span>
             </div>
         </li>
         <li class="dropdown">
@@ -32,7 +28,7 @@
                     @else
                             
                     @endif
-                    <span class="pro-user-name ml-1">{{ Auth::user()['name_'.'en'] }}</span>
+                    <span class="pro-user-name ml-1">{{ Auth::user()['name_'.config('app.locale')] }}</span>
                     
                 @else
                 <img src="{{ asset('assets/mytheme/images/avatar-1.jpg') }}"  alt="user-image" class="rounded-circle" style="height: 32px;width: 32px;"/>
@@ -58,10 +54,10 @@
                 </div>
                 @else
                 <a href="{{ route('login') }}" class="dropdown-item notify-item">
-                    <span>Login</span>
+                    <span> {{ __('Login') }}</span>
                 </a>
                 <a href="{{ route('register') }}" class="dropdown-item notify-item">
-                    <span>Registration</span>
+                    <span> {{ __('Registraion') }}</span>
                 </a>
                 @endauth 
 
