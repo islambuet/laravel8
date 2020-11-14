@@ -14,6 +14,17 @@
     <!-- Users options -->
     <ul class="list-unstyled float-right mb-0">
         <li class="dropdown">
+            <a class="nav-link dropdown-toggle mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">{{__('Change Language')}}</a>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a href="{{ route('login') }}" class="dropdown-item notify-item">
+                    <span>English</span>
+                </a>
+                <a href="{{ route('register') }}" class="dropdown-item notify-item">
+                    <span>বাংলা</span>
+                </a>
+            </div>
+        </li>
+        <li class="dropdown">
             <a class="nav-link dropdown-toggle mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                 @auth
                     @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
