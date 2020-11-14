@@ -1,7 +1,7 @@
 <header id="system_top_bar" class="d-print-none">
     <!-- LOGO -->
     <div id="logo_container" class="d-none d-lg-block d-xl-block float-left">
-        <img style="height: 25px;" src="http://shaiful.me/wp-content/uploads/2015/11/cropped-20151108_1558521.jpg" alt="">
+        <img style="height: 25px;" src="{{ asset('assets/mytheme/images/banner.jpg') }}" alt="">
     </div>
     <!-- Left Sidebar handler -->
     <button id="handler_left_sidebar" class="handler-sidebar float-left">
@@ -24,7 +24,7 @@
             <a class="nav-link dropdown-toggle mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                 @auth
                     @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                    <img src="{{ Auth::user()->profile_photo_url }}"  alt="{{ Auth::user()->name_en }}" class="rounded-circle" style="height: 32px;width: 32px;"/>
+                    <img src="{{ Auth::user()->profile_photo_url }}"  alt="{{ Auth::user()['name_'.config('app.locale')] }}" class="rounded-circle" style="height: 32px;width: 32px;"/>
                     @else
                             
                     @endif

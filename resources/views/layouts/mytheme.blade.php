@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Laravel Practice</title>
-    <link rel="shortcut icon" href="http://shaiful.me/wp-content/uploads/2017/04/logo.jpg">
+    <link rel="shortcut icon" href="{{ asset('assets/mytheme/images/logo.jpg') }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
