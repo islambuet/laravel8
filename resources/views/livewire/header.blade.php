@@ -15,29 +15,44 @@
     <ul class="list-unstyled float-right mb-0">
         <li class="dropdown">
             <a class="nav-link dropdown-toggle mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                <img src="{{ asset('assets/mytheme/images/avatar-1.jpg') }}"  alt="user-image" class="rounded-circle" style="height: 32px;width: 32px;">
-                            <span class="pro-user-name ml-1">
-                                Shaiful Islam  <i class="mdi mdi-chevron-down"></i>
-                            </span>
+                @auth
+                    @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+                    <img src="{{ Auth::user()->profile_photo_url }}"  alt="{{ Auth::user()->name_en }}" class="rounded-circle" style="height: 32px;width: 32px;"/>
+                    @else
+                            
+                    @endif
+                    <span class="pro-user-name ml-1">{{ Auth::user()['name_'.'en'] }}</span>
+                    
+                @else
+                <img src="{{ asset('assets/mytheme/images/avatar-1.jpg') }}"  alt="user-image" class="rounded-circle" style="height: 32px;width: 32px;"/>
+                <span class="pro-user-name ml-1">{{ __('Guest') }}</span>
+                @endauth    
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-                <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                    <i class="fe-user"></i>
-                    <span>Change Profile Picture</span>
+                @auth
+                <!-- Authentication -->
+                <a href="{{ route('dashboard') }}" class="dropdown-item notify-item">
+                    <span>Profile Settings</span>
                 </a>
+                <div class="dropdown-item notify-item">
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
 
-                <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                    <i class="fe-lock"></i>
-                    <span>Change Password</span>
+                        <x-jet-dropdown-link href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                            {{ __('Logout') }}
+                        </x-jet-dropdown-link>
+                    </form>
+                </div>
+                @else
+                <a href="{{ route('login') }}" class="dropdown-item notify-item">
+                    <span>Login</span>
                 </a>
-
-                <div class="dropdown-divider"></div>
-                <a href="http://localhost/login_2018_19/home/logout" class="dropdown-item">
-                    <i class="fe-log-out"></i>
-                    <span>Logout</span>
+                <a href="{{ route('register') }}" class="dropdown-item notify-item">
+                    <span>Registration</span>
                 </a>
+                @endauth 
 
             </div>
         </li>
