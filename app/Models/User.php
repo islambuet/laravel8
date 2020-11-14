@@ -64,4 +64,5 @@ class User extends Authenticatable
     {
         return 'https://ui-avatars.com/api/?name='.urlencode($this['name_'.config('app.locale')]).'&color=7F9CF5&background=EBF4FF';
     }
+    
 }
