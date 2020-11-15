@@ -38,7 +38,7 @@
             <div class="dropdown-menu dropdown-menu-right">
                 @auth
                 <!-- Authentication -->
-                <a href="{{ route('dashboard') }}" class="dropdown-item notify-item">
+                <a href="{{ url('/user/profile') }}" class="dropdown-item notify-item">
                     <span>Profile Settings</span>
                 </a>
                 <div class="dropdown-item notify-item">

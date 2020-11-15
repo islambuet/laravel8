@@ -1,7 +1,7 @@
 
 <div>
     
-    {{Auth::user()->userGroup }}
+    {{Auth::user() }}
 </div>
 
 
