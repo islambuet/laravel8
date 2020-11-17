@@ -1,5 +1,10 @@
 <div>   
     @include('livewire.system-module-task.add-edit')
+    <style>
+        svg{
+            max-height: 20px;
+        }
+    </style>
     <div class="card m-2">
         <div class="card-header">
             <h3>All Module and Tasks</h3> 
@@ -14,10 +19,7 @@
                 </div>                
             @endif
             <div class="card">
-                <div class="card-body">
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#modalAddEdit">
-                        {{__('New')}}
-                    </button> 
+                <div class="card-body">                    
                     @if ($permissions['action_1']==1)
                     <button class="btn btn-primary" data-toggle="modal" data-target="#modalAddEdit" wire:click="getItem(0)">{{__('New')}}</button>                        
                     @endif
@@ -28,9 +30,17 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Name(Englsih)</th>
+                        <th>Name(Englsih)
+                            <input type="text" class="form-control" wire:model="serach_name_en" placeholder="Serach Name">
+                        </th>
                         <th>Name Bangla</th> 
-                        <th>Type</th> 
+                        <th>Type
+                            <select id="type" class="form-control" wire:model="serach_type">>
+                                <option value="">SearCh Type</option>
+                                <option value="MODULE">Module</option>
+                                <option value="TASK">Task</option>
+                              </select>
+                        </th> 
                         @if (($permissions['action_2']==1)||($permissions['action_3']==1))
                         <th>Actions</th>                                                    
                         @endif                       
@@ -65,6 +75,7 @@
                     @endforeach
                 </tbody>
             </table>
+            {{$tasks->links()}}
         </div>
     </div>
     @section('jsInline')

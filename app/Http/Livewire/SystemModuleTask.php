@@ -4,11 +4,14 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\SystemTask;
 use HelperClasses\ModuleTaskHelper;
+use Livewire\WithPagination;
 
 class SystemModuleTask extends Component
 {
     public $task;
     public $permissions=array();
+    public $serach_name_en="";
+    public $serach_type="";
     protected $rules = [
         'task.name_en' => 'required|min:3',        
         'task.name_bn' => 'required|min:3',
@@ -83,9 +86,13 @@ class SystemModuleTask extends Component
         $this->emit("hideModal",$this->task['id']);
         
     }
+    
     public function render()
     {   
-        $tasks=SystemTask::orderBy('id', 'DESC')->get();
+        $tasks=SystemTask::orderBy('id', 'DESC')
+                ->where('name_en','LIKE','%'.$this->serach_name_en.'%')
+                ->where('type','LIKE','%'.$this->serach_type.'%')
+                ->paginate(8);
         if($this->permissions['action_0']==1)
         {
             return view('livewire.system-module-task.list',['tasks'=>$tasks])->layout('layouts/mytheme');

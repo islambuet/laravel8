@@ -11,8 +11,12 @@
     <button id="handler_right_sidebar" class="handler-sidebar float-right">
         <i class="fe-bell"></i>
     </button>    
+    <button class="handler-sidebar float-right">
+        <i class="fe-shopping-cart"></i>
+    </button> 
     <!-- Users options -->
     <ul class="list-unstyled float-right mb-0">
+        
         <li class="dropdown">
             <a class="nav-link dropdown-toggle mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">{{__('Language')}}</a>
             <div class="dropdown-menu dropdown-menu-right">
@@ -32,7 +36,7 @@
                     
                 @else
                 <img src="{{ asset('assets/mytheme/images/avatar-1.jpg') }}"  alt="user-image" class="rounded-circle" style="height: 32px;width: 32px;"/>
-                <span class="pro-user-name ml-1">{{ __('Guest') }}</span>
+                <span class="pro-user-name ml-1 d-none d-sm-inline">{{ __('Guest') }}</span>
                 @endauth    
             </a>
             <div class="dropdown-menu dropdown-menu-right">
