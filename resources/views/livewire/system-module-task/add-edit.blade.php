@@ -1,14 +1,15 @@
-<div wire:ignore.self class="modal fade" id="addTask" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div wire:ignore.self class="modal fade" id="modalAddEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add New Task</h5>
+          <h5 class="modal-title">Add/Edit Task</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">            
             <form wire:submit.prevent="store()">
+              <input type="hidden" wire:model="task.id">
                 <div class="form-group">
                     <label for="name_en">Name(english)</label>
                     <input type="text" class="form-control" wire:model="task.name_en">
