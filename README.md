@@ -6,3 +6,6 @@ php artisan jetstream:install livewire
 php artisan livewire:publish --assets
 
 php artisan make:livewire SystemModuleTask
+app/Http/Livewire/SetupProducts.php
+
+php artisan make:model Flight -m
